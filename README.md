@@ -8,6 +8,12 @@ A lightweight to-do list app with a relaxed, pastel UI.
 - Clear all completed tasks.
 - Saves tasks in local storage.
 
+## Preview
+
+Here is a working preview of the app UI with sample tasks:
+
+![Easy Breezy Todos preview](browser:/tmp/codex_browser_invocations/1067d33f0ca827a8/artifacts/preview.png)
+
 ## Run locally
 1. Start a static server in this folder:
    ```bash
