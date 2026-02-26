@@ -1,0 +1,324 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7f5;
+  --surface: #ffffff;
+  --primary: #7fb77e;
+  --accent: #f2c6a0;
+  --text-main: #2f3e34;
+  --text-soft: #9aa5a0;
+  --border: #e7ece9;
+  --progress: linear-gradient(90deg, #7fb77e, #8baed1);
+  --shadow: 0 18px 40px rgba(47, 62, 52, 0.08);
+}
+
+body[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #202823;
+  --surface: #2a342e;
+  --primary: #8ac889;
+  --accent: #d5ae8d;
+  --text-main: #e6efe8;
+  --text-soft: #b1bcb6;
+  --border: #3a4740;
+  --progress: linear-gradient(90deg, #8ac889, #7ea6cf);
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Quicksand', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-main);
+  background: var(--bg);
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: min(100%, 700px);
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.tag {
+  margin: 0;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.subtitle {
+  margin: 0.45rem 0 1.2rem;
+  color: var(--text-soft);
+}
+
+.icon-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 86%, var(--accent) 14%);
+  padding: 0;
+}
+
+
+.theme-icons {
+  display: inline-grid;
+  place-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-main);
+}
+
+.todo-form {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.todo-form input {
+  flex: 1;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%);
+  color: var(--text-main);
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  outline: none;
+  transition: 220ms border-color, 220ms box-shadow;
+}
+
+.todo-form input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+button {
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  color: var(--text-main);
+  background: var(--surface);
+  padding: 0.72rem 1rem;
+  cursor: pointer;
+  transition: transform 220ms ease, filter 220ms ease, background-color 220ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.todo-form button {
+  background: color-mix(in srgb, var(--primary) 78%, white 22%);
+  color: #133317;
+  font-weight: 700;
+}
+
+.progress {
+  margin-top: 0.95rem;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 50%, var(--text-soft) 12%);
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: var(--progress);
+  border-radius: inherit;
+  transition: width 260ms ease;
+}
+
+.toolbar {
+  margin-top: 1rem;
+  display: inline-flex;
+  gap: 0.4rem;
+  background: color-mix(in srgb, var(--surface) 70%, var(--accent) 30%);
+  padding: 0.25rem;
+  border-radius: 14px;
+}
+
+.filter {
+  padding: 0.45rem 0.8rem;
+  background: transparent;
+  color: var(--text-soft);
+}
+
+.filter.is-active {
+  background: var(--surface);
+  color: var(--text-main);
+  box-shadow: 0 2px 8px rgba(47, 62, 52, 0.1);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.7rem 0.85rem;
+  animation: fade-in 230ms ease;
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.todo-item input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.check {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.35rem;
+  border: 2px solid color-mix(in srgb, var(--text-soft) 55%, transparent);
+  background: var(--surface);
+  transition: 220ms;
+  flex-shrink: 0;
+}
+
+.todo-item input:checked + .check {
+  border-color: var(--primary);
+  background: radial-gradient(circle at 30% 30%, #fff 10%, var(--primary) 12%);
+}
+
+.text {
+  line-height: 1.3;
+}
+
+.todo-item.done .text {
+  color: var(--text-soft);
+  text-decoration: line-through;
+}
+
+.delete {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 35%, var(--surface) 65%);
+  color: color-mix(in srgb, var(--text-main) 80%, var(--accent) 20%);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.meta {
+  margin-top: 1rem;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.ghost {
+  background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%);
+  color: var(--text-soft);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 540px) {
+  .card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  
+.theme-icons {
+  display: inline-grid;
+  place-items: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-main);
+}
+
+.todo-form {
+    flex-direction: column;
+  }
+}

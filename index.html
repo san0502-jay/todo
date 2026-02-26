@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easy Breezy Todos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card" aria-label="To-do app">
+        <header class="hero">
+          <div class="hero-row">
+            <div>
+              <p class="tag">Slow day planner</p>
+              <h1>Easy Breezy Todos</h1>
+            </div>
+            <button
+              id="theme-toggle"
+              class="icon-button"
+              type="button"
+              aria-label="Switch to dark mode"
+              title="Toggle theme"
+            >
+              <span class="theme-icons" aria-hidden="true">
+                <span id="icon-moon">☾</span>
+                <span id="icon-sun" hidden>☀</span>
+              </span>
+            </button>
+          </div>
+          <p class="subtitle">Small steps. Soft colors. Zero pressure.</p>
+        </header>
+
+        <form id="todo-form" class="todo-form">
+          <label for="todo-input" class="sr-only">Add a new task</label>
+          <input
+            id="todo-input"
+            name="todo-input"
+            type="text"
+            maxlength="140"
+            placeholder="What would feel good to finish next?"
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Add</button>
+        </form>
+
+        <section class="progress" aria-label="Task completion progress">
+          <div class="progress-meta">
+            <span id="progress-label">0% calm progress</span>
+            <span id="progress-detail">0 of 0 done</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressbar">
+            <span id="progress-fill" class="progress-fill"></span>
+          </div>
+        </section>
+
+        <section class="toolbar" aria-label="Task filters">
+          <button class="filter is-active" data-filter="all">All</button>
+          <button class="filter" data-filter="active">Open</button>
+          <button class="filter" data-filter="done">Done</button>
+        </section>
+
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+        <footer class="meta">
+          <p id="todo-count">0 tasks left</p>
+          <button id="clear-done" class="ghost" type="button">Clear done</button>
+        </footer>
+      </section>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label>
+          <input type="checkbox" />
+          <span class="check"></span>
+          <span class="text"></span>
+        </label>
+        <button type="button" class="delete" aria-label="Delete task">×</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
