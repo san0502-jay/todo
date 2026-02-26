@@ -5,19 +5,11 @@ const count = document.querySelector('#todo-count');
 const clearDoneButton = document.querySelector('#clear-done');
 const filterButtons = [...document.querySelectorAll('.filter')];
 const template = document.querySelector('#todo-item-template');
-const themeToggle = document.querySelector('#theme-toggle');
-const themeIcon = document.querySelector('#theme-icon');
-const progressFill = document.querySelector('#progress-fill');
-const progressLabel = document.querySelector('#progress-label');
-const progressDetail = document.querySelector('#progress-detail');
-const progressbar = document.querySelector('#progressbar');
 
 const STORAGE_KEY = 'easy-breezy-todos';
-const THEME_KEY = 'easy-breezy-theme';
 
 let filter = 'all';
 let todos = loadTodos();
-let theme = loadTheme();
 
 function createId() {
   if (
@@ -46,25 +38,6 @@ function safeSetStorageItem(key, value) {
   }
 }
 
-function loadTheme() {
-  const savedTheme = safeGetStorageItem(THEME_KEY);
-  if (savedTheme === 'dark' || savedTheme === 'light') return savedTheme;
-  return globalThis.matchMedia && globalThis.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-
-function applyTheme(nextTheme) {
-  theme = nextTheme;
-  document.body.dataset.theme = nextTheme;
-  themeIcon.textContent = nextTheme === 'dark' ? '☀️' : '🌙';
-  themeToggle.setAttribute(
-    'aria-label',
-    nextTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-  );
-  safeSetStorageItem(THEME_KEY, nextTheme);
-}
-
 function loadTodos() {
   try {
     const parsed = JSON.parse(safeGetStorageItem(STORAGE_KEY) || '[]');
@@ -89,17 +62,6 @@ function filteredTodos() {
   if (filter === 'active') return todos.filter((todo) => !todo.done);
   if (filter === 'done') return todos.filter((todo) => todo.done);
   return todos;
-}
-
-function renderProgress() {
-  const total = todos.length;
-  const done = todos.filter((todo) => todo.done).length;
-  const percentage = total === 0 ? 0 : Math.round((done / total) * 100);
-
-  progressFill.style.width = `${percentage}%`;
-  progressLabel.textContent = `${percentage}% calm progress`;
-  progressDetail.textContent = `${done} of ${total} done`;
-  progressbar.setAttribute('aria-valuenow', String(percentage));
 }
 
 function render() {
@@ -133,8 +95,6 @@ function render() {
   filterButtons.forEach((button) => {
     button.classList.toggle('is-active', button.dataset.filter === filter);
   });
-
-  renderProgress();
 }
 
 function addTodo(text) {
@@ -181,9 +141,4 @@ clearDoneButton.addEventListener('click', () => {
   render();
 });
 
-themeToggle.addEventListener('click', () => {
-  applyTheme(theme === 'dark' ? 'light' : 'dark');
-});
-
-applyTheme(theme);
 render();

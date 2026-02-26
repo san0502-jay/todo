@@ -7,14 +7,12 @@ A lightweight to-do list app with a relaxed, pastel UI.
 - Filter tasks by all/open/done.
 - Clear all completed tasks.
 - Saves tasks in local storage.
-- Light/Dark mode toggle with a subtle icon.
-- Calm green/blue progress indicator.
 
 ## Preview
 
 Here is a working preview of the app UI with sample tasks:
 
-![Easy Breezy Todos preview](browser:/tmp/codex_browser_invocations/297a0b7a4f59a39e/artifacts/artifacts/preview-working-theme.png)
+![Easy Breezy Todos preview](browser:/tmp/codex_browser_invocations/1067d33f0ca827a8/artifacts/preview.png)
 
 ## Run locally
 1. Start a static server in this folder:
@@ -32,7 +30,7 @@ Here is a working preview of the app UI with sample tasks:
 - Refresh the page and confirm tasks persist.
 
 ## Deploy to Vercel
-This repo includes `vercel.json` with an SPA rewrite for route-like paths only (paths without file extensions), so direct links such as `/done` work while assets like `/app.js` and `/styles.css` are served normally.
+This repo includes `vercel.json` so all routes rewrite to `index.html`, which keeps the app working on Vercel even when opening nested paths directly.
 
 ### Option A: Vercel dashboard
 1. Push this repo to GitHub/GitLab/Bitbucket.
