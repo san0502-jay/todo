@@ -16,8 +16,24 @@
     <main class="app-shell">
       <section class="card" aria-label="To-do app">
         <header class="hero">
-          <p class="tag">Slow day planner</p>
-          <h1>Easy Breezy Todos</h1>
+          <div class="hero-row">
+            <div>
+              <p class="tag">Slow day planner</p>
+              <h1>Easy Breezy Todos</h1>
+            </div>
+            <button
+              id="theme-toggle"
+              class="icon-button"
+              type="button"
+              aria-label="Switch to dark mode"
+              title="Toggle theme"
+            >
+              <span class="theme-icons" aria-hidden="true">
+                <span id="icon-moon">☾</span>
+                <span id="icon-sun" hidden>☀</span>
+              </span>
+            </button>
+          </div>
           <p class="subtitle">Small steps. Soft colors. Zero pressure.</p>
         </header>
 
@@ -34,6 +50,16 @@
           />
           <button type="submit">Add</button>
         </form>
+
+        <section class="progress" aria-label="Task completion progress">
+          <div class="progress-meta">
+            <span id="progress-label">0% calm progress</span>
+            <span id="progress-detail">0 of 0 done</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressbar">
+            <span id="progress-fill" class="progress-fill"></span>
+          </div>
+        </section>
 
         <section class="toolbar" aria-label="Task filters">
           <button class="filter is-active" data-filter="all">All</button>
