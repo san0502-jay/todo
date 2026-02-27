@@ -1,0 +1,16 @@
+{
+  "appId": "com.easybreezy.todos",
+  "appName": "Easy Breezy Todos",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#F4F7F5",
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": true,
+    "appendUserAgent": " EasyBreezyAndroidWebView"
+  }
+}
