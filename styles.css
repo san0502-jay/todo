@@ -1,27 +1,29 @@
 :root {
   color-scheme: light;
   --bg: #f4f7f5;
-  --surface: #ffffff;
+  --surface: #fbfdfb;
   --primary: #7fb77e;
   --accent: #f2c6a0;
   --text-main: #2f3e34;
   --text-soft: #9aa5a0;
-  --border: #e7ece9;
-  --progress: linear-gradient(90deg, #7fb77e, #8baed1);
-  --shadow: 0 18px 40px rgba(47, 62, 52, 0.08);
+  --border: #e3ebe5;
+  --done: #8db89a;
+  --progress: linear-gradient(90deg, #7fb77e, #85aecd);
+  --shadow: 0 14px 35px rgba(47, 62, 52, 0.08);
 }
 
 body[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #202823;
+  --bg: #1f2722;
   --surface: #2a342e;
   --primary: #8ac889;
-  --accent: #d5ae8d;
-  --text-main: #e6efe8;
-  --text-soft: #b1bcb6;
-  --border: #3a4740;
-  --progress: linear-gradient(90deg, #8ac889, #7ea6cf);
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --accent: #d8b194;
+  --text-main: #e4efe7;
+  --text-soft: #afbbb4;
+  --border: #3b4841;
+  --done: #93c4a2;
+  --progress: linear-gradient(90deg, #8ac889, #80a9d0);
+  --shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -34,7 +36,7 @@ body {
   font-family: 'Quicksand', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text-main);
   background: var(--bg);
-  transition: background-color 250ms ease, color 250ms ease;
+  transition: background-color 260ms ease, color 260ms ease;
 }
 
 .app-shell {
@@ -45,116 +47,106 @@ body {
 }
 
 .card {
-  width: min(100%, 700px);
+  width: min(100%, 760px);
   border-radius: 20px;
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   padding: 1.5rem;
-  transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 
 .hero-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
 
 .tag {
   margin: 0;
   color: var(--primary);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  margin: 0;
 }
 
 .subtitle {
-  margin: 0.45rem 0 1.2rem;
+  margin: 0.4rem 0 1rem;
   color: var(--text-soft);
+}
+
+button,
+input,
+select {
+  font: inherit;
 }
 
 .icon-button {
   width: 2.5rem;
   height: 2.5rem;
-  display: grid;
-  place-items: center;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 86%, var(--accent) 14%);
-  padding: 0;
+  background: color-mix(in srgb, var(--surface) 90%, var(--accent) 10%);
+  cursor: pointer;
 }
-
 
 .theme-icons {
   display: inline-grid;
-  place-items: center;
   width: 1.1rem;
   height: 1.1rem;
-  font-size: 1rem;
-  line-height: 1;
-  color: var(--text-main);
+  place-items: center;
 }
 
 .todo-form {
-  display: flex;
-  gap: 0.65rem;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 0.9fr auto;
+  gap: 0.6rem;
 }
 
-.todo-form input {
-  flex: 1;
+.todo-form input,
+.todo-form select {
+  border-radius: 14px;
   border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%);
+  padding: 0.75rem 0.9rem;
+  background: color-mix(in srgb, var(--surface) 92%, var(--accent) 8%);
   color: var(--text-main);
-  padding: 0.8rem 1rem;
-  border-radius: 14px;
+}
+
+.todo-form input:focus,
+.todo-form select:focus,
+button:focus-visible {
   outline: none;
-  transition: 220ms border-color, 220ms box-shadow;
-}
-
-.todo-form input:focus {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 30%, transparent);
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 28%, transparent);
 }
 
-button {
-  border: 0;
+#submit-button {
+  border: none;
   border-radius: 14px;
-  font: inherit;
-  color: var(--text-main);
-  background: var(--surface);
-  padding: 0.72rem 1rem;
-  cursor: pointer;
-  transition: transform 220ms ease, filter 220ms ease, background-color 220ms ease;
-}
-
-button:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.02);
-}
-
-.todo-form button {
+  padding: 0.75rem 1rem;
   background: color-mix(in srgb, var(--primary) 78%, white 22%);
-  color: #133317;
+  color: #17371b;
   font-weight: 700;
+  cursor: pointer;
+  transition: transform 220ms ease;
+}
+
+#submit-button:hover {
+  transform: translateY(-1px);
 }
 
 .progress {
-  margin-top: 0.95rem;
+  margin-top: 1rem;
 }
 
 .progress-meta {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   color: var(--text-soft);
-  font-size: 0.9rem;
   margin-bottom: 0.4rem;
 }
 
@@ -162,8 +154,8 @@ button:hover {
   width: 100%;
   height: 10px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--surface) 50%, var(--text-soft) 12%);
   overflow: hidden;
+  background: color-mix(in srgb, var(--surface) 60%, var(--text-soft) 15%);
 }
 
 .progress-fill {
@@ -171,111 +163,143 @@ button:hover {
   width: 0%;
   height: 100%;
   background: var(--progress);
-  border-radius: inherit;
   transition: width 260ms ease;
 }
 
 .toolbar {
   margin-top: 1rem;
   display: inline-flex;
-  gap: 0.4rem;
-  background: color-mix(in srgb, var(--surface) 70%, var(--accent) 30%);
-  padding: 0.25rem;
+  gap: 0.3rem;
+  background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%);
   border-radius: 14px;
+  padding: 0.25rem;
 }
 
 .filter {
-  padding: 0.45rem 0.8rem;
+  border: none;
   background: transparent;
   color: var(--text-soft);
+  border-radius: 12px;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+  transition: all 220ms ease;
 }
 
 .filter.is-active {
   background: var(--surface);
   color: var(--text-main);
-  box-shadow: 0 2px 8px rgba(47, 62, 52, 0.1);
+}
+
+.empty-state {
+  margin: 1rem 0 0.4rem;
+  color: var(--text-soft);
+  background: color-mix(in srgb, var(--surface) 85%, var(--accent) 15%);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 0.8rem;
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0;
+  margin: 0.8rem 0 0;
   display: grid;
   gap: 0.6rem;
 }
 
 .todo-item {
+  background: color-mix(in srgb, var(--surface) 90%, var(--accent) 10%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.65rem 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.6rem;
-  background: color-mix(in srgb, var(--surface) 88%, var(--accent) 12%);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 0.7rem 0.85rem;
-  animation: fade-in 230ms ease;
+  gap: 0.8rem;
+  animation: fade-in 240ms ease;
 }
 
-.todo-item label {
+.todo-main {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
   width: 100%;
+  align-items: center;
   cursor: pointer;
 }
 
-.todo-item input {
+.todo-item input[type='checkbox'] {
   position: absolute;
   opacity: 0;
-  pointer-events: none;
 }
 
 .check {
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 0.35rem;
-  border: 2px solid color-mix(in srgb, var(--text-soft) 55%, transparent);
+  border: 2px solid color-mix(in srgb, var(--text-soft) 60%, transparent);
   background: var(--surface);
-  transition: 220ms;
-  flex-shrink: 0;
+  transition: all 220ms ease;
 }
 
 .todo-item input:checked + .check {
   border-color: var(--primary);
-  background: radial-gradient(circle at 30% 30%, #fff 10%, var(--primary) 12%);
+  background: radial-gradient(circle at 30% 30%, #fff 10%, var(--primary) 11%);
 }
 
 .text {
-  line-height: 1.3;
+  display: block;
 }
 
-.todo-item.done .text {
+.details {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.due,
+.priority-badge {
+  font-size: 0.75rem;
   color: var(--text-soft);
-  text-decoration: line-through;
+  background: color-mix(in srgb, var(--surface) 80%, var(--accent) 20%);
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
 }
 
-.delete {
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 35%, var(--surface) 65%);
-  color: color-mix(in srgb, var(--text-main) 80%, var(--accent) 20%);
-  font-size: 1.25rem;
-  line-height: 1;
+.priority-badge[data-priority='high'] {
+  background: color-mix(in srgb, var(--accent) 45%, var(--surface) 55%);
+}
+
+.priority-badge[data-priority='medium'] {
+  background: color-mix(in srgb, var(--primary) 25%, var(--surface) 75%);
+}
+
+.actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.edit,
+.delete,
+.ghost {
+  border: none;
+  border-radius: 12px;
+  padding: 0.45rem 0.55rem;
+  cursor: pointer;
+  color: var(--text-main);
+  background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%);
+}
+
+.todo-item.completed .text {
+  color: var(--done);
+  opacity: 0.75;
+  text-decoration: line-through;
 }
 
 .meta {
   margin-top: 1rem;
-  color: var(--text-soft);
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 0.7rem;
-}
-
-.ghost {
-  background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%);
+  align-items: center;
   color: var(--text-soft);
 }
 
@@ -283,42 +307,24 @@ button:hover {
   position: absolute;
   width: 1px;
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 
 @keyframes fade-in {
   from {
-    transform: translateY(5px);
     opacity: 0;
+    transform: translateY(5px);
   }
   to {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 540px) {
-  .card {
-    padding: 1rem;
-    border-radius: 16px;
-  }
-
-  
-.theme-icons {
-  display: inline-grid;
-  place-items: center;
-  width: 1.1rem;
-  height: 1.1rem;
-  font-size: 1rem;
-  line-height: 1;
-  color: var(--text-main);
-}
-
-.todo-form {
-    flex-direction: column;
+@media (max-width: 760px) {
+  .todo-form {
+    grid-template-columns: 1fr;
   }
 }
