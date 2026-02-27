@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easy Breezy Todos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card" aria-label="To-do app">
+        <header class="hero">
+          <div class="hero-row">
+            <div>
+              <p class="tag">Calm planner</p>
+              <h1>Easy Breezy Todos</h1>
+            </div>
+            <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode" title="Toggle theme">
+              <span class="theme-icons" aria-hidden="true">
+                <span id="icon-moon">☾</span>
+                <span id="icon-sun" hidden>☀</span>
+              </span>
+            </button>
+          </div>
+          <p class="subtitle">Gentle focus with less pressure.</p>
+        </header>
+
+        <form id="todo-form" class="todo-form">
+          <label for="todo-input" class="sr-only">Task text</label>
+          <input id="todo-input" name="todo-input" type="text" maxlength="140" placeholder="What would feel good to finish next?" autocomplete="off" required />
+
+          <label for="todo-due" class="sr-only">Due date</label>
+          <input id="todo-due" name="todo-due" type="date" />
+
+          <label for="todo-priority" class="sr-only">Priority</label>
+          <select id="todo-priority" name="todo-priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+
+          <button type="submit" id="submit-button">Add</button>
+        </form>
+
+        <section class="progress" aria-label="Task completion progress">
+          <div class="progress-meta">
+            <span id="progress-label">0/0 completed</span>
+            <span id="progress-percent">0%</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressbar">
+            <span id="progress-fill" class="progress-fill"></span>
+          </div>
+        </section>
+
+        <section class="toolbar" aria-label="Task filters">
+          <button class="filter is-active" data-filter="all" type="button">All</button>
+          <button class="filter" data-filter="active" type="button">Active</button>
+          <button class="filter" data-filter="completed" type="button">Completed</button>
+        </section>
+
+        <p id="empty-state" class="empty-state">No tasks yet. Add one gentle step to begin.</p>
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+        <footer class="meta">
+          <p id="todo-count">0 active tasks</p>
+          <button id="clear-completed" class="ghost" type="button">Clear completed</button>
+        </footer>
+      </section>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label class="todo-main">
+          <input type="checkbox" />
+          <span class="check"></span>
+          <span>
+            <span class="text"></span>
+            <span class="details">
+              <span class="due"></span>
+              <span class="priority-badge"></span>
+            </span>
+          </span>
+        </label>
+        <div class="actions">
+          <button type="button" class="edit" aria-label="Edit task">✎</button>
+          <button type="button" class="delete" aria-label="Delete task">×</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
