@@ -7,8 +7,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Easy Breezy Todos" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>Easy Breezy Todos</title>
     <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icons/icon-192.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,12 +30,17 @@
               <p class="tag">Calm planner</p>
               <h1>Easy Breezy Todos</h1>
             </div>
-            <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode" title="Toggle theme">
-              <span class="theme-icons" aria-hidden="true">
-                <span id="icon-moon">☾</span>
-                <span id="icon-sun" hidden>☀</span>
-              </span>
-            </button>
+            <div class="top-actions">
+              <button id="install-button" class="icon-button" type="button" title="Install app" aria-label="Install app" hidden>
+                ⬇
+              </button>
+              <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode" title="Toggle theme">
+                <span class="theme-icons" aria-hidden="true">
+                  <span id="icon-moon">☾</span>
+                  <span id="icon-sun" hidden>☀</span>
+                </span>
+              </button>
+            </div>
           </div>
           <p class="subtitle">Gentle focus with less pressure.</p>
         </header>
@@ -56,6 +64,7 @@
           </div>
 
           <button type="submit" id="submit-button">Add</button>
+          <button type="button" id="cancel-edit" class="ghost" hidden>Cancel</button>
         </form>
 
         <section class="progress" aria-label="Task completion progress">
@@ -85,11 +94,11 @@
     </main>
 
     <template id="todo-item-template">
-      <li class="todo-item">
+      <li class="todo-item" draggable="false">
         <label class="todo-main">
           <input type="checkbox" />
           <span class="check"></span>
-          <span>
+          <span class="content">
             <span class="text"></span>
             <span class="details">
               <span class="due"></span>

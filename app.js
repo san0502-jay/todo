@@ -3,6 +3,11 @@ const input = document.querySelector('#todo-input');
 const dueInput = document.querySelector('#todo-due');
 const priorityInput = document.querySelector('#todo-priority');
 const submitButton = document.querySelector('#submit-button');
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+const cancelEditButton = document.querySelector('#cancel-edit');
+const installButton = document.querySelector('#install-button');
+=======
+>>>>>>> main
 const list = document.querySelector('#todo-list');
 const count = document.querySelector('#todo-count');
 const clearCompletedButton = document.querySelector('#clear-completed');
@@ -22,6 +27,11 @@ const THEME_KEY = 'easy-breezy-theme';
 
 let filter = 'all';
 let editingId = null;
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+let deferredPrompt = null;
+let dragSourceId = null;
+=======
+>>>>>>> main
 let todos = loadTodos();
 let theme = loadTheme();
 
@@ -44,7 +54,11 @@ function safeSetStorageItem(key, value) {
   try {
     localStorage.setItem(key, value);
   } catch {
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+    // ignore storage errors
+=======
     // Ignore storage failures (private mode / disabled storage)
+>>>>>>> main
   }
 }
 
@@ -121,6 +135,10 @@ function resetFormState() {
   form.reset();
   priorityInput.value = 'medium';
   submitButton.textContent = 'Add';
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+  cancelEditButton.hidden = true;
+=======
+>>>>>>> main
   input.focus();
 }
 
@@ -130,9 +148,28 @@ function startEdit(todo) {
   dueInput.value = todo.dueDate;
   priorityInput.value = todo.priority;
   submitButton.textContent = 'Save';
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+  cancelEditButton.hidden = false;
   input.focus();
 }
 
+function reorderTodos(sourceId, targetId) {
+  if (!sourceId || !targetId || sourceId === targetId) return;
+  const sourceIndex = todos.findIndex((todo) => todo.id === sourceId);
+  const targetIndex = todos.findIndex((todo) => todo.id === targetId);
+  if (sourceIndex < 0 || targetIndex < 0) return;
+
+  const [moved] = todos.splice(sourceIndex, 1);
+  todos.splice(targetIndex, 0, moved);
+  saveTodos();
+  render();
+}
+
+=======
+  input.focus();
+}
+
+>>>>>>> main
 function render() {
   list.innerHTML = '';
   const filteredTodos = getFilteredTodos();
@@ -141,6 +178,10 @@ function render() {
   filteredTodos.forEach((todo) => {
     const node = template.content.firstElementChild.cloneNode(true);
     const checkbox = node.querySelector('input');
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+    const todoMain = node.querySelector('.todo-main');
+=======
+>>>>>>> main
     const text = node.querySelector('.text');
     const due = node.querySelector('.due');
     const priorityBadge = node.querySelector('.priority-badge');
@@ -148,6 +189,10 @@ function render() {
     const deleteButton = node.querySelector('.delete');
 
     node.dataset.id = todo.id;
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+    node.draggable = filter === 'all';
+=======
+>>>>>>> main
     checkbox.checked = todo.completed;
     text.textContent = todo.text;
     due.textContent = formatDueDate(todo.dueDate);
@@ -156,9 +201,49 @@ function render() {
     node.classList.toggle('completed', todo.completed);
 
     checkbox.addEventListener('change', () => toggleTodo(todo.id));
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+
+    // Click row text/details to edit task quickly.
+    todoMain.addEventListener('click', (event) => {
+      if (event.target.closest('input')) return;
+      startEdit(todo);
+    });
+
     editButton.addEventListener('click', () => startEdit(todo));
     deleteButton.addEventListener('click', () => removeTodo(todo.id));
 
+    node.addEventListener('dragstart', () => {
+      dragSourceId = todo.id;
+      node.classList.add('dragging');
+    });
+
+    node.addEventListener('dragend', () => {
+      dragSourceId = null;
+      node.classList.remove('dragging');
+    });
+
+    node.addEventListener('dragover', (event) => {
+      if (filter !== 'all') return;
+      event.preventDefault();
+      node.classList.add('drag-over');
+    });
+
+    node.addEventListener('dragleave', () => {
+      node.classList.remove('drag-over');
+    });
+
+    node.addEventListener('drop', (event) => {
+      if (filter !== 'all') return;
+      event.preventDefault();
+      node.classList.remove('drag-over');
+      reorderTodos(dragSourceId, todo.id);
+    });
+
+=======
+    editButton.addEventListener('click', () => startEdit(todo));
+    deleteButton.addEventListener('click', () => removeTodo(todo.id));
+
+>>>>>>> main
     list.append(node);
   });
 
@@ -214,6 +299,13 @@ form.addEventListener('submit', (event) => {
   resetFormState();
 });
 
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+cancelEditButton.addEventListener('click', () => {
+  resetFormState();
+});
+
+=======
+>>>>>>> main
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     filter = button.dataset.filter;
@@ -231,12 +323,39 @@ themeToggle.addEventListener('click', () => {
   applyTheme(theme === 'dark' ? 'light' : 'dark');
 });
 
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  installButton.hidden = false;
+});
+
+installButton.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installButton.hidden = true;
+});
+
+window.addEventListener('appinstalled', () => {
+  deferredPrompt = null;
+  installButton.hidden = true;
+});
+=======
 applyTheme(theme);
 render();
 
+>>>>>>> main
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   });
 }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+
+applyTheme(theme);
+render();
+=======
+>>>>>>> main
