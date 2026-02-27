@@ -1,6 +1,6 @@
 # Easy Breezy Todos
 
-A lightweight, calming to-do app with optional due dates, priorities, and dark/light mode.
+A lightweight, calming to-do app with optional due dates, priorities, dark/light mode, and installable mobile app support (PWA).
 
 ## Features
 - Add, edit, complete, and delete tasks.
@@ -10,6 +10,7 @@ A lightweight, calming to-do app with optional due dates, priorities, and dark/l
 - Empty state message for first-time use.
 - Light/Dark mode toggle with a simple icon.
 - Tasks and theme are persisted in local storage.
+- Installable mobile app (PWA) support.
 
 ## Run locally
 1. Start a static server in this folder:
@@ -20,3 +21,8 @@ A lightweight, calming to-do app with optional due dates, priorities, and dark/l
 
 ## Deploy to Vercel
 `vercel.json` is configured for SPA-style routes while still serving static assets directly.
+
+
+## Install on mobile
+- Open the deployed app in Chrome/Edge/Safari mobile browser.
+- Use **Add to Home Screen** / **Install App** to install it like a mobile app.

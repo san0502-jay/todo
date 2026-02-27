@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7FB77E" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Easy Breezy Todos" />
     <title>Easy Breezy Todos</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icons/icon-192.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,15 +41,19 @@
           <label for="todo-input" class="sr-only">Task text</label>
           <input id="todo-input" name="todo-input" type="text" maxlength="140" placeholder="What would feel good to finish next?" autocomplete="off" required />
 
-          <label for="todo-due" class="sr-only">Due date</label>
-          <input id="todo-due" name="todo-due" type="date" />
+          <div class="field-group">
+            <label for="todo-due" class="field-label">Due date</label>
+            <input id="todo-due" name="todo-due" type="date" />
+          </div>
 
-          <label for="todo-priority" class="sr-only">Priority</label>
-          <select id="todo-priority" name="todo-priority">
-            <option value="low">Low</option>
-            <option value="medium" selected>Medium</option>
-            <option value="high">High</option>
-          </select>
+          <div class="field-group">
+            <label for="todo-priority" class="field-label">Priority</label>
+            <select id="todo-priority" name="todo-priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
 
           <button type="submit" id="submit-button">Add</button>
         </form>
