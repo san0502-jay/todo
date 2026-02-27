@@ -19,9 +19,22 @@ A lightweight, calming to-do app with optional due dates, priorities, dark/light
    ```
 2. Open `http://localhost:4173`.
 
+## Capacitor Android setup
+This repo is prepared for Capacitor with:
+- `www/` web assets (app entry for native builds)
+- `capacitor.config.json` configured with `webDir: "www"`
+- mobile-friendly meta tags + Android WebView optimizations
+- icon/splash placeholders in `resources/`
+
+Typical commands after installing Capacitor in your project:
+```bash
+npx cap add android
+npx cap sync android
+npx cap open android
+```
+
 ## Deploy to Vercel
 `vercel.json` is configured for SPA-style routes while still serving static assets directly.
-
 
 ## Install on mobile
 - Open the deployed app in Chrome/Edge/Safari mobile browser.
