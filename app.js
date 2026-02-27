@@ -136,7 +136,6 @@ function startEdit(todo) {
 function render() {
   list.innerHTML = '';
   const filteredTodos = getFilteredTodos();
-
   emptyState.hidden = filteredTodos.length > 0;
 
   filteredTodos.forEach((todo) => {
@@ -156,17 +155,9 @@ function render() {
     priorityBadge.dataset.priority = todo.priority;
     node.classList.toggle('completed', todo.completed);
 
-    checkbox.addEventListener('change', () => {
-      toggleTodo(todo.id);
-    });
-
-    editButton.addEventListener('click', () => {
-      startEdit(todo);
-    });
-
-    deleteButton.addEventListener('click', () => {
-      removeTodo(todo.id);
-    });
+    checkbox.addEventListener('change', () => toggleTodo(todo.id));
+    editButton.addEventListener('click', () => startEdit(todo));
+    deleteButton.addEventListener('click', () => removeTodo(todo.id));
 
     list.append(node);
   });
@@ -188,17 +179,13 @@ function addTodo(text, dueDate, priority) {
 }
 
 function updateTodo(id, text, dueDate, priority) {
-  todos = todos.map((todo) =>
-    todo.id === id ? { ...todo, text, dueDate, priority } : todo,
-  );
+  todos = todos.map((todo) => (todo.id === id ? { ...todo, text, dueDate, priority } : todo));
   saveTodos();
   render();
 }
 
 function toggleTodo(id) {
-  todos = todos.map((todo) =>
-    todo.id === id ? { ...todo, completed: !todo.completed } : todo,
-  );
+  todos = todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo));
   saveTodos();
   render();
 }
@@ -212,7 +199,6 @@ function removeTodo(id) {
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-
   const text = input.value.trim();
   if (!text) return;
 

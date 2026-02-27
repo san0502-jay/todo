@@ -21,13 +21,7 @@
               <p class="tag">Calm planner</p>
               <h1>Easy Breezy Todos</h1>
             </div>
-            <button
-              id="theme-toggle"
-              class="icon-button"
-              type="button"
-              aria-label="Switch to dark mode"
-              title="Toggle theme"
-            >
+            <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark mode" title="Toggle theme">
               <span class="theme-icons" aria-hidden="true">
                 <span id="icon-moon">☾</span>
                 <span id="icon-sun" hidden>☀</span>
@@ -39,15 +33,7 @@
 
         <form id="todo-form" class="todo-form">
           <label for="todo-input" class="sr-only">Task text</label>
-          <input
-            id="todo-input"
-            name="todo-input"
-            type="text"
-            maxlength="140"
-            placeholder="What would feel good to finish next?"
-            autocomplete="off"
-            required
-          />
+          <input id="todo-input" name="todo-input" type="text" maxlength="140" placeholder="What would feel good to finish next?" autocomplete="off" required />
 
           <label for="todo-due" class="sr-only">Due date</label>
           <input id="todo-due" name="todo-due" type="date" />
@@ -67,14 +53,7 @@
             <span id="progress-label">0/0 completed</span>
             <span id="progress-percent">0%</span>
           </div>
-          <div
-            class="progress-track"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="0"
-            id="progressbar"
-          >
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressbar">
             <span id="progress-fill" class="progress-fill"></span>
           </div>
         </section>
@@ -86,7 +65,6 @@
         </section>
 
         <p id="empty-state" class="empty-state">No tasks yet. Add one gentle step to begin.</p>
-
         <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
 
         <footer class="meta">
