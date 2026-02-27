@@ -27,7 +27,22 @@ body[data-theme='dark'] {
 }
 
 * { box-sizing: border-box; }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+=======
+
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+>>>>>>> main
 
 body {
   margin: 0;
@@ -36,15 +51,21 @@ body {
   color: var(--text-main);
   background: var(--bg);
   transition: background-color 260ms ease, color 260ms ease;
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   -webkit-tap-highlight-color: transparent;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+=======
+>>>>>>> main
 }
 
 .app-shell { min-height: 100vh; display: grid; place-items: center; padding: 2rem 1rem; }
 .card { width: min(100%, 760px); border-radius: 20px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 1.5rem; }
 .hero-row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 .top-actions { display: flex; gap: 0.45rem; }
+=======
+>>>>>>> main
 .tag { margin: 0; color: var(--primary); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
 h1 { margin: 0; }
 .subtitle { margin: 0.4rem 0 1rem; color: var(--text-soft); }
@@ -58,12 +79,19 @@ button, input, select { font: inherit; }
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface) 90%, var(--accent) 10%);
   cursor: pointer;
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   transition: transform 220ms ease, filter 220ms ease;
 }
 .icon-button:hover { transform: translateY(-1px); filter: brightness(1.02); }
 .theme-icons { display: inline-grid; width: 1.1rem; height: 1.1rem; place-items: center; }
 
 .todo-form { display: grid; grid-template-columns: 1.8fr 1fr 1fr auto auto; gap: 0.6rem; }
+=======
+}
+.theme-icons { display: inline-grid; width: 1.1rem; height: 1.1rem; place-items: center; }
+
+.todo-form { display: grid; grid-template-columns: 1.8fr 1fr 1fr auto; gap: 0.6rem; }
+>>>>>>> main
 .field-group { display: grid; gap: 0.22rem; }
 .field-label { font-size: 0.72rem; color: var(--text-soft); font-weight: 700; padding-left: 0.2rem; }
 
@@ -77,6 +105,10 @@ button, input, select { font: inherit; }
   min-width: 0;
 }
 
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+=======
+/* Mobile date text visibility fix */
+>>>>>>> main
 input[type='date'] {
   color: var(--text-main);
   -webkit-text-fill-color: var(--text-main);
@@ -94,6 +126,7 @@ button:focus-visible {
   border-color: var(--primary);
 }
 
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 #submit-button, #cancel-edit {
   border: none;
   border-radius: 14px;
@@ -106,29 +139,47 @@ button:focus-visible {
 #submit-button { background: color-mix(in srgb, var(--primary) 78%, white 22%); color: #17371b; }
 #cancel-edit { background: color-mix(in srgb, var(--surface) 70%, var(--accent) 30%); color: var(--text-main); }
 #submit-button:hover, #cancel-edit:hover { transform: translateY(-1px); filter: brightness(1.02); }
+=======
+#submit-button { border: none; border-radius: 14px; padding: 0.75rem 1rem; background: color-mix(in srgb, var(--primary) 78%, white 22%); color: #17371b; font-weight: 700; cursor: pointer; transition: transform 220ms ease; align-self: end; }
+#submit-button:hover { transform: translateY(-1px); }
+>>>>>>> main
 
 .progress { margin-top: 1rem; }
 .progress-meta { display: flex; justify-content: space-between; color: var(--text-soft); margin-bottom: 0.4rem; }
 .progress-track { width: 100%; height: 10px; border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--surface) 60%, var(--text-soft) 15%); }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 .progress-fill { display: block; width: 0%; height: 100%; background: var(--progress); transition: width 280ms ease; }
 
 .toolbar { margin-top: 1rem; display: inline-flex; gap: 0.3rem; background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%); border-radius: 14px; padding: 0.25rem; }
 .filter { border: none; background: transparent; color: var(--text-soft); border-radius: 12px; padding: 0.45rem 0.8rem; cursor: pointer; transition: all 220ms ease; }
 .filter:hover { transform: translateY(-1px); }
+=======
+.progress-fill { display: block; width: 0%; height: 100%; background: var(--progress); transition: width 260ms ease; }
+
+.toolbar { margin-top: 1rem; display: inline-flex; gap: 0.3rem; background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%); border-radius: 14px; padding: 0.25rem; }
+.filter { border: none; background: transparent; color: var(--text-soft); border-radius: 12px; padding: 0.45rem 0.8rem; cursor: pointer; transition: all 220ms ease; }
+>>>>>>> main
 .filter.is-active { background: var(--surface); color: var(--text-main); }
 
 .empty-state { margin: 1rem 0 0.4rem; color: var(--text-soft); background: color-mix(in srgb, var(--surface) 85%, var(--accent) 15%); border: 1px dashed var(--border); border-radius: 12px; padding: 0.8rem; }
 
 .todo-list { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 0.6rem; }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 .todo-item { background: color-mix(in srgb, var(--surface) 90%, var(--accent) 10%); border: 1px solid var(--border); border-radius: 14px; padding: 0.65rem 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; animation: fade-in 240ms ease; transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
 .todo-item:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(47,62,52,0.08); }
 .todo-item.drag-over { border-color: var(--primary); }
 .todo-item.dragging { opacity: 0.6; }
+=======
+.todo-item { background: color-mix(in srgb, var(--surface) 90%, var(--accent) 10%); border: 1px solid var(--border); border-radius: 14px; padding: 0.65rem 0.75rem; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; animation: fade-in 240ms ease; }
+>>>>>>> main
 .todo-main { display: flex; gap: 0.7rem; width: 100%; align-items: center; cursor: pointer; min-width: 0; }
 .todo-item input[type='checkbox'] { position: absolute; opacity: 0; }
 .check { width: 1.1rem; height: 1.1rem; border-radius: 0.35rem; border: 2px solid color-mix(in srgb, var(--text-soft) 60%, transparent); background: var(--surface); transition: all 220ms ease; flex-shrink: 0; }
 .todo-item input:checked + .check { border-color: var(--primary); background: radial-gradient(circle at 30% 30%, #fff 10%, var(--primary) 11%); }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 .content { min-width: 0; }
+=======
+>>>>>>> main
 .text { display: block; overflow-wrap: anywhere; }
 .details { display: flex; gap: 0.5rem; margin-top: 0.2rem; flex-wrap: wrap; }
 
@@ -140,8 +191,12 @@ button:focus-visible {
 .priority-badge[data-priority='low'] { background: #9fc6e8; color: #14324a; }
 
 .actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 .edit, .delete, .ghost { border: none; border-radius: 12px; padding: 0.45rem 0.55rem; cursor: pointer; color: var(--text-main); background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%); transition: transform 220ms ease, filter 220ms ease; }
 .edit:hover, .delete:hover, .ghost:hover { transform: translateY(-1px); filter: brightness(1.03); }
+=======
+.edit, .delete, .ghost { border: none; border-radius: 12px; padding: 0.45rem 0.55rem; cursor: pointer; color: var(--text-main); background: color-mix(in srgb, var(--surface) 75%, var(--accent) 25%); }
+>>>>>>> main
 
 .todo-item.completed .text { color: var(--done); opacity: 0.75; text-decoration: line-through; }
 
@@ -153,17 +208,26 @@ button:focus-visible {
 
 @media (max-width: 980px) {
   .todo-form { grid-template-columns: 1fr 1fr; }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   .todo-form > :first-child,
   #submit-button,
   #cancel-edit { grid-column: span 2; }
+=======
+  .todo-form > :first-child { grid-column: span 2; }
+  #submit-button { grid-column: span 2; }
+>>>>>>> main
 }
 
 @media (max-width: 680px) {
   .card { padding: 1rem; border-radius: 16px; }
   .todo-form { grid-template-columns: 1fr; }
   .todo-form > :first-child,
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   #submit-button,
   #cancel-edit { grid-column: auto; }
+=======
+  #submit-button { grid-column: auto; }
+>>>>>>> main
   .toolbar { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); }
   .filter { text-align: center; }
   .todo-item { align-items: flex-start; }

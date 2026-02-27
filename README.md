@@ -1,5 +1,6 @@
 # Easy Breezy Todos
 
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 A lightweight, calming to-do app with due dates, priorities, drag-drop ordering, theme toggle, and installable app support.
 
 ## Features
@@ -14,6 +15,19 @@ A lightweight, calming to-do app with due dates, priorities, drag-drop ordering,
 - Light/Dark mode toggle.
 - Install button for PWA support.
 - Tasks and theme are persisted in local storage.
+=======
+A lightweight, calming to-do app with optional due dates, priorities, dark/light mode, and installable mobile app support (PWA).
+
+## Features
+- Add, edit, complete, and delete tasks.
+- Optional due date and priority (Low/Medium/High).
+- Filters: All, Active, Completed.
+- Progress indicator (e.g. `3/10 completed`).
+- Empty state message for first-time use.
+- Light/Dark mode toggle with a simple icon.
+- Tasks and theme are persisted in local storage.
+- Installable mobile app (PWA) support.
+>>>>>>> main
 
 ## Run locally
 1. Start a static server in this folder:
@@ -38,3 +52,10 @@ npx cap open android
 
 ## Deploy to Vercel
 `vercel.json` is configured for SPA-style routes while still serving static assets directly.
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
+=======
+
+## Install on mobile
+- Open the deployed app in Chrome/Edge/Safari mobile browser.
+- Use **Add to Home Screen** / **Install App** to install it like a mobile app.
+>>>>>>> main

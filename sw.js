@@ -1,3 +1,4 @@
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 const CACHE_NAME = 'easy-breezy-todos-v2';
 const FILES_TO_CACHE = [
   'index.html',
@@ -7,6 +8,17 @@ const FILES_TO_CACHE = [
   'icons/icon.svg',
   'icons/icon-192.svg',
   'icons/icon-512.svg'
+=======
+const CACHE_NAME = 'easy-breezy-todos-v1';
+const FILES_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/styles.css',
+  '/app.js',
+  '/manifest.json',
+  '/icons/icon-192.svg',
+  '/icons/icon-512.svg'
+>>>>>>> main
 ];
 
 self.addEventListener('install', (event) => {
@@ -16,7 +28,13 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
     caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))),
+=======
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))),
+    ),
+>>>>>>> main
   );
   self.clients.claim();
 });
@@ -33,7 +51,11 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
           return response;
         })
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
         .catch(() => caches.match('index.html'));
+=======
+        .catch(() => caches.match('/index.html'));
+>>>>>>> main
     }),
   );
 });

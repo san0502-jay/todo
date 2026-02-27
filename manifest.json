@@ -1,26 +1,41 @@
 {
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   "id": "/",
+=======
+>>>>>>> main
   "name": "Easy Breezy Todos",
   "short_name": "BreezyTodos",
   "description": "Calm to-do app with priorities, due dates, and progress tracking.",
   "start_url": "/",
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   "scope": "/",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
+=======
+  "display": "standalone",
+>>>>>>> main
   "background_color": "#F4F7F5",
   "theme_color": "#7FB77E",
   "icons": [
     {
       "src": "icons/icon-192.svg",
       "sizes": "192x192",
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
       "type": "image/svg+xml",
       "purpose": "any"
+=======
+      "type": "image/svg+xml"
+>>>>>>> main
     },
     {
       "src": "icons/icon-512.svg",
       "sizes": "512x512",
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
       "type": "image/svg+xml",
       "purpose": "any"
+=======
+      "type": "image/svg+xml"
+>>>>>>> main
     }
   ]
 }

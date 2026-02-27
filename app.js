@@ -3,8 +3,11 @@ const input = document.querySelector('#todo-input');
 const dueInput = document.querySelector('#todo-due');
 const priorityInput = document.querySelector('#todo-priority');
 const submitButton = document.querySelector('#submit-button');
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 const cancelEditButton = document.querySelector('#cancel-edit');
 const installButton = document.querySelector('#install-button');
+=======
+>>>>>>> main
 const list = document.querySelector('#todo-list');
 const count = document.querySelector('#todo-count');
 const clearCompletedButton = document.querySelector('#clear-completed');
@@ -24,8 +27,11 @@ const THEME_KEY = 'easy-breezy-theme';
 
 let filter = 'all';
 let editingId = null;
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 let deferredPrompt = null;
 let dragSourceId = null;
+=======
+>>>>>>> main
 let todos = loadTodos();
 let theme = loadTheme();
 
@@ -48,7 +54,11 @@ function safeSetStorageItem(key, value) {
   try {
     localStorage.setItem(key, value);
   } catch {
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
     // ignore storage errors
+=======
+    // Ignore storage failures (private mode / disabled storage)
+>>>>>>> main
   }
 }
 
@@ -125,7 +135,10 @@ function resetFormState() {
   form.reset();
   priorityInput.value = 'medium';
   submitButton.textContent = 'Add';
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   cancelEditButton.hidden = true;
+=======
+>>>>>>> main
   input.focus();
 }
 
@@ -135,6 +148,7 @@ function startEdit(todo) {
   dueInput.value = todo.dueDate;
   priorityInput.value = todo.priority;
   submitButton.textContent = 'Save';
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
   cancelEditButton.hidden = false;
   input.focus();
 }
@@ -151,6 +165,11 @@ function reorderTodos(sourceId, targetId) {
   render();
 }
 
+=======
+  input.focus();
+}
+
+>>>>>>> main
 function render() {
   list.innerHTML = '';
   const filteredTodos = getFilteredTodos();
@@ -159,7 +178,10 @@ function render() {
   filteredTodos.forEach((todo) => {
     const node = template.content.firstElementChild.cloneNode(true);
     const checkbox = node.querySelector('input');
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
     const todoMain = node.querySelector('.todo-main');
+=======
+>>>>>>> main
     const text = node.querySelector('.text');
     const due = node.querySelector('.due');
     const priorityBadge = node.querySelector('.priority-badge');
@@ -167,7 +189,10 @@ function render() {
     const deleteButton = node.querySelector('.delete');
 
     node.dataset.id = todo.id;
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
     node.draggable = filter === 'all';
+=======
+>>>>>>> main
     checkbox.checked = todo.completed;
     text.textContent = todo.text;
     due.textContent = formatDueDate(todo.dueDate);
@@ -176,6 +201,7 @@ function render() {
     node.classList.toggle('completed', todo.completed);
 
     checkbox.addEventListener('change', () => toggleTodo(todo.id));
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 
     // Click row text/details to edit task quickly.
     todoMain.addEventListener('click', (event) => {
@@ -213,6 +239,11 @@ function render() {
       reorderTodos(dragSourceId, todo.id);
     });
 
+=======
+    editButton.addEventListener('click', () => startEdit(todo));
+    deleteButton.addEventListener('click', () => removeTodo(todo.id));
+
+>>>>>>> main
     list.append(node);
   });
 
@@ -268,10 +299,13 @@ form.addEventListener('submit', (event) => {
   resetFormState();
 });
 
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 cancelEditButton.addEventListener('click', () => {
   resetFormState();
 });
 
+=======
+>>>>>>> main
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     filter = button.dataset.filter;
@@ -289,6 +323,7 @@ themeToggle.addEventListener('click', () => {
   applyTheme(theme === 'dark' ? 'light' : 'dark');
 });
 
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 window.addEventListener('beforeinstallprompt', (event) => {
   event.preventDefault();
   deferredPrompt = event;
@@ -307,12 +342,20 @@ window.addEventListener('appinstalled', () => {
   deferredPrompt = null;
   installButton.hidden = true;
 });
+=======
+applyTheme(theme);
+render();
+
+>>>>>>> main
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   });
 }
+<<<<<<< codex/create-a-to-do-list-app-pewv4n
 
 applyTheme(theme);
 render();
+=======
+>>>>>>> main
